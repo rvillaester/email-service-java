@@ -1,0 +1,20 @@
+service: email-service
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: java11
+  region: ${opt:stage, 'ap-southeast-2'}
+  stage: ${opt:stage, 'dev'}
+
+package:
+  artifact: target/email-service.jar
+
+functions:
+  sendEmail:
+    handler: com.emailservice.LambdaHandler::handleRequest
+    events:
+      - http:
+          path: send
+          method: post
+          cors: true
