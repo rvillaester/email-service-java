@@ -23,7 +23,9 @@ public class DummyProvider extends EmailProvider{
     @Override
     public EmailResponse process(EmailRequest emailRequest) {
         String id = String.valueOf(ApplicationUtil.timeInMillis());
-        return EmailResponse.builder().id(id).message("Success").status(Status.SUCCESS).build();
+        EmailResponse response = EmailResponse.success();
+        response.setId(id);
+        return response;
     }
 
     @Override

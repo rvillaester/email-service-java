@@ -5,6 +5,7 @@ import com.emailservice.model.EmailResponse;
 import com.emailservice.model.ValidationResponse;
 import com.emailservice.provider.EmailProvider;
 import com.emailservice.validator.EmailRequestValidator;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@Setter
 public class EmailController {
 
     @Autowired

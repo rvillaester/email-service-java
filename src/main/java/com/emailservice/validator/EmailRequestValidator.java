@@ -30,6 +30,4 @@ public class EmailRequestValidator {
         if(ApplicationUtil.isEmpty(emails)) return true;
         return !Arrays.stream(emails).anyMatch(email -> !EmailValidator.getInstance().isValid(email));
     }
-
-
 }

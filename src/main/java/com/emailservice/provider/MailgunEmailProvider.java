@@ -5,6 +5,7 @@ import com.emailservice.model.EmailResponse;
 import com.emailservice.model.MailgunResponse;
 import com.emailservice.model.Status;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Setter;
 import org.apache.http.Consts;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -24,6 +25,7 @@ import java.util.List;
 
 @Order(1)
 @Component
+@Setter
 public class MailgunEmailProvider extends EmailProvider{
 
     @Autowired

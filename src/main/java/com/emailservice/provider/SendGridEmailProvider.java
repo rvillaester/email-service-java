@@ -3,12 +3,9 @@ package com.emailservice.provider;
 import com.emailservice.exception.ApplicationException;
 import com.emailservice.model.*;
 import com.emailservice.util.ApplicationUtil;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +21,9 @@ public class SendGridEmailProvider extends EmailProvider{
     @Override
     public EmailResponse handleSuccess(String body) {
         String id = String.valueOf(ApplicationUtil.timeInMillis());
-        return EmailResponse.builder().message("Success").status(Status.FAILED).id(id).build();
+        EmailResponse emailResponse = EmailResponse.success();
+        emailResponse.setId(id);
+        return emailResponse;
     }
 
     @Override

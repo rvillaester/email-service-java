@@ -38,6 +38,10 @@ public class EmailResponse {
         return EmailResponse.builder().status(Status.FAILED).message("Failed in sending email").build();
     }
 
+    public static EmailResponse success() {
+        return EmailResponse.builder().status(Status.SUCCESS).message("Success").build();
+    }
+
     @JsonIgnore
     public boolean isSuccess(){
         return Status.SUCCESS.equals(status);
