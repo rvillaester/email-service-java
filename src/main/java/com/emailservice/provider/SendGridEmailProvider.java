@@ -20,10 +20,7 @@ public class SendGridEmailProvider extends EmailProvider{
 
     @Override
     public EmailResponse handleSuccess(String body) {
-        String id = String.valueOf(ApplicationUtil.timeInMillis());
-        EmailResponse emailResponse = EmailResponse.success();
-        emailResponse.setId(id);
-        return emailResponse;
+        return EmailResponse.success();
     }
 
     @Override
