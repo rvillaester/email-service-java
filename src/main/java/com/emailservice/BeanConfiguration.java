@@ -28,8 +28,7 @@ public class BeanConfiguration {
     private CredentialsProvider buildMailgunCredentialsProvider() {
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials
-//              = new UsernamePasswordCredentials("api", "c7dd7303c0b2fc9a8d868b566a430303-0677517f-fabb0801");
-                = new UsernamePasswordCredentials("api", System.getenv("mg-api-key"));
+                = new UsernamePasswordCredentials("api", System.getenv("MG_API_KEY"));
         provider.setCredentials(AuthScope.ANY, credentials);
         return provider;
     }

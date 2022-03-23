@@ -49,8 +49,8 @@ public class EmailControllerTest {
         when(emailRequestValidator.validate(request)).thenReturn(validationResponse);
         EmailResponse emailResponse = emailController.send(request);
         assertAll("Request validation error scenario",
-                () -> assertEquals(emailResponse.getValidationMessages().size(), validationResponse.getValidationMessages().size()),
-                () -> assertEquals(emailResponse.getValidationMessages().get(0), validationErrorMessage),
+                () -> assertEquals(validationResponse.getValidationMessages().size(), emailResponse.getValidationMessages().size()),
+                () -> assertEquals(validationErrorMessage, emailResponse.getValidationMessages().get(0)),
                 () -> assertFalse(emailResponse.isSuccess()));
     }
 

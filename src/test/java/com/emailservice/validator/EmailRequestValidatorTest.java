@@ -29,8 +29,8 @@ public class EmailRequestValidatorTest {
         ValidationResponse response = validator.validate(request);
         assertAll("Missing subject scenario",
                 () -> assertFalse(response.isValid()),
-                () -> assertEquals(response.getValidationMessages().size(), 1),
-                () -> assertEquals(response.getValidationMessages().get(0), "Subject is required"));
+                () -> assertEquals(1, response.getValidationMessages().size()),
+                () -> assertEquals("Subject is required", response.getValidationMessages().get(0)));
     }
 
     @Test

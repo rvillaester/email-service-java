@@ -55,7 +55,7 @@ public class MailgunEmailProvider extends EmailProvider{
     }
 
     private String buildUrl() {
-        return String.format("https://api.mailgun.net/v3/%s/messages", System.getenv("mg-domain"));
+        return String.format("https://api.mailgun.net/v3/%s/messages", System.getenv("MG_DOMAIN"));
     }
 
     @Override

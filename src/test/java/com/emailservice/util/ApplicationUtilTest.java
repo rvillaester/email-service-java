@@ -12,7 +12,7 @@ public class ApplicationUtilTest {
         EmailRecord mail = new EmailRecord("Rey", "rey@test.com");
         String json = ApplicationUtil.toJsonString(mail);
         String expected = "{\"name\":\"Rey\",\"email\":\"rey@test.com\"}";
-        assertEquals(json, expected);
+        assertEquals(expected, json);
     }
 
     @Test

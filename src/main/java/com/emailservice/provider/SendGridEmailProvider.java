@@ -30,7 +30,7 @@ public class SendGridEmailProvider extends EmailProvider{
     public HttpRequestBase buildHttpRequest(EmailRequest emailRequest) {
         try {
             HttpPost httpPost = new HttpPost("https://api.sendgrid.com//v3/mail/send");
-            httpPost.setHeader("Authorization", String.format("Bearer %s", System.getenv("sg-api-key")));
+            httpPost.setHeader("Authorization", String.format("Bearer %s", System.getenv("SG_API_KEY")));
             StringEntity entity = new StringEntity(ApplicationUtil.toJsonString(toSendgridMail(emailRequest)));
             httpPost.setEntity(entity);
             return httpPost;

@@ -1,0 +1,111 @@
+openapi: 3.0.1
+info:
+  version: "1.0"
+  title: Email Service
+  description: |
+    Email Service
+servers:
+  - url: https://mdabzegst3.execute-api.ap-southeast-2.amazonaws.com/dev
+    description: DEV environment
+  - url: TBA
+    description: UAT environment
+  - url: TBA
+    description: Staging environment
+  - url: TBA
+    description: Production environment
+tags:
+  - name: Email Service
+    description: Operations sending emails
+paths:
+  /send:
+    post:
+      tags:
+        - Email send response
+      summary: Send email message
+      description: Use this resource to send email message
+      requestBody:
+        description: A JSON Payload containing the request information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailRequest'
+      responses:
+        200:
+          description: Request submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailResponse'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse500'
+components:
+  schemas:
+    EmailRequest:
+      type: object
+      required:
+        - to
+        - subject
+        - message
+      properties:
+        to:
+          type: array
+          items:
+            type: string
+          example: ["rey@test.com", "test@gmail.com"]
+        cc:
+          type: array
+          items:
+            type: string
+          example: ["reycc@test.com", "testcc@gmail.com"]
+        bcc:
+          type: array
+          items:
+            type: string
+          example: ["reybcc@test.com", "testbcc@gmail.com"]
+        subject:
+          type: string
+          example: This is the subject
+        message:
+          type: string
+          example: This is the message
+    EmailResponse:
+      type: object
+      required:
+        - status
+        - message
+      properties:
+        id:
+          type: string
+          example: 2039238293282
+        status:
+          type: string
+          enum:
+            - SUCCESS
+            - VALIDATION_ERROR
+            - FAILED
+          example: SUCCESS
+        message:
+          type: string
+          example: The message has been sent
+        validationMessages:
+          type: array
+          items:
+            type: string
+          example: ["Subject is required", "Message is required"]
+
+    ErrorResponse500:
+      type: object
+      properties:
+        status:
+          type: string
+          example: '500'
+        title:
+          type: string
+          example: Internal Error
+        detail:
+          type: string
+          example: Internal Error @stacktrace.
