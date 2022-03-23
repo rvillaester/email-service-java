@@ -11,3 +11,6 @@ Refer to the postman collection (postman_collection.json) included in this repos
 ## API Documentation
 Refer to the swagger docs (api-docs.yml) included in this repository
 
+## Architecture Design
+Refer to ARCHITECTURE.md included in this repository
+
