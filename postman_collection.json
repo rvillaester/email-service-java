@@ -8,8 +8,32 @@
 		{
 			"name": "send email",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"to\": [\"rey@gmail.com\", \"jacob@r.com\", \"jake@test.com\"],\r\n    \"cc\": [\"reycc@test.com\"],\r\n    \"bcc\": [\"reybcc@test.com\"],\r\n    \"subject\": \"subject here\",\r\n    \"message\": \"message here\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mdabzegst3.execute-api.ap-southeast-2.amazonaws.com/dev/send",
+					"protocol": "https",
+					"host": [
+						"mdabzegst3",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"send"
+					]
+				}
 			},
 			"response": []
 		}
